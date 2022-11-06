@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import { FlatList, StyleSheet, View } from 'react-native';
-import ListItem from '../components/listItem';
-import ListItemDeleteAction from '../components/listItemDeleteAction';
-import ListItemSeparator from '../components/listItemSeparator';
+import ListItem from '../components/lists/listItem';
+import ListItemDeleteAction from '../components/lists/listItemDeleteAction';
+import ListItemSeparator from '../components/lists/listItemSeparator';
 import Screen from '../components/screen';
 
 const initialMessages = [
   {
     id: 1,
-    title: 'Title 1',
-    description: 'Description 1',
+    title: 'Title 1 asja sjbasb sba absiaisx xsiuab saiua',
+    description: 'Description 1 axja sjxx sbas sbxua suvasvx xbausx xsbuhabx xaiubxa xbiuxiuua xbiax',
     image: require('../assets/images.jpg'),
   },
   {

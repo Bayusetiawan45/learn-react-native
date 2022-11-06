@@ -13,12 +13,21 @@ import AppText from './text';
 import Screen from './screen';
 import PickerItem from './pickerItem';
 
-const AppPicker = ({ icon, items, placeholder,  onSelectItem, selectedItem }) => {
+const AppPicker = ({
+  icon,
+  items,
+  placeholder,
+  onSelectItem,
+  selectedItem,
+  PickerItemComponent = PickerItem,
+  numberOfColumns = 1,
+  width = "100%",
+}) => {
   const [modalVisible, setModalVisble] = useState(false);
   return (
     <>
       <TouchableWithoutFeedback onPress={() => setModalVisble(true)}>
-        <View style={styles.container}>
+        <View style={[styles.container, { width }]}>
           {icon && (
             <MaterialCommunityIcons
               name={icon}
@@ -27,7 +36,11 @@ const AppPicker = ({ icon, items, placeholder,  onSelectItem, selectedItem }) =>
               style={styles.icon}
             />
           )}
-          <AppText style={styles.text}>{selectedItem ? selectedItem.label : placeholder}</AppText>
+          {selectedItem ? (
+            <AppText style={styles.text}>{selectedItem.label}</AppText>
+          ) : (
+            <AppText style={styles.placeholder}>{placeholder}</AppText>
+          )}
           <MaterialCommunityIcons
             name="chevron-down"
             size={20}
@@ -40,13 +53,15 @@ const AppPicker = ({ icon, items, placeholder,  onSelectItem, selectedItem }) =>
           <Button title="Close" onPress={() => setModalVisble(false)} />
           <FlatList
             data={items}
+            numColumns={numberOfColumns}
             keyExtractor={(item) => item.value.toString()}
             renderItem={({ item }) => (
-              <PickerItem
+              <PickerItemComponent
+                item={item}
                 label={item.label}
                 onPress={() => {
-                  setModalVisble(false)
-                  onSelectItem(item)
+                  setModalVisble(false);
+                  onSelectItem(item);
                 }}
               />
             )}
@@ -62,7 +77,6 @@ const styles = StyleSheet.create({
     backgroundColor: defaultStyles.colors.light,
     borderRadius: 25,
     flexDirection: 'row',
-    width: '100%',
     padding: 15,
     marginVertical: 10,
   },
@@ -70,6 +84,10 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   text: {
+    flex: 1,
+  },
+  placeholder: {
+    color: defaultStyles.colors.medium,
     flex: 1,
   },
 });
