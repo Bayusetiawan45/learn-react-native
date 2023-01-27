@@ -8,14 +8,20 @@ import Screen from '../components/screen';
 const initialMessages = [
   {
     id: 1,
-    title: 'Title 1 asja sjbasb sba absiaisx xsiuab saiua',
-    description: 'Description 1 axja sjxx sbas sbxua suvasvx xbausx xsbuhabx xaiubxa xbiuxiuua xbiax',
-    image: require('../assets/images.jpg'),
+    title: 'Bayu Setiawan',
+    description: 'Hello! How are you?',
+    image: require('../assets/bayu.jpeg'),
   },
   {
     id: 2,
-    title: 'Title 2',
-    description: 'Description 2',
+    title: 'Tiyas Akbar',
+    description: 'Thank for your give!',
+    image: require('../assets/images.jpg'),
+  },
+  {
+    id: 3,
+    title: 'Feni Aprilia',
+    description: 'Cannot wait to see u',
     image: require('../assets/images.jpg'),
   },
 ];

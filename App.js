@@ -1,10 +1,13 @@
+import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
-import ListingEditScreen from './app/screens/listingEditScreen';
-import ListingScreen from './app/screens/listingScreen';
-import MessagesScreen from './app/screens/messagesScreen';
+import navigationTheme from './app/navigation/navigationTheme';
+import AppNavigator from './app/navigation/appNavigation';
+
 const App = () => {
   return (
-    <ListingEditScreen />
+    <NavigationContainer theme={navigationTheme}>
+      <AppNavigator />
+    </NavigationContainer>
   );
 };
 

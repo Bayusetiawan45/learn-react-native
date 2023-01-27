@@ -1,8 +1,9 @@
 import React from 'react';
 import { Image, ImageBackground, StyleSheet, Text, View } from 'react-native';
 import AppButton from '../components/button';
+import routes from '../navigation/routes';
 
-const WelcomeScreen = () => {
+const WelcomeScreen = ({ navigation }) => {
   return (
     <ImageBackground
       source={require('../assets/background.jpg')}
@@ -14,8 +15,12 @@ const WelcomeScreen = () => {
         <Text style={styles.tagline}>Sell What You Don't Need</Text>
       </View>
       <View style={styles.buttonContainer}>
-        <AppButton title="Login" />
-        <AppButton title="Register" color='secondary' />
+        <AppButton title="Login" onPress={() => navigation.navigate(routes.LOGIN)} />
+        <AppButton
+          title="Register"
+          color="secondary"
+          onPress={() => navigation.navigate(routes.REGISTER)}
+        />
       </View>
     </ImageBackground>
   );
@@ -29,7 +34,7 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     width: '100%',
-    padding: 20
+    padding: 20,
   },
   logo: {
     width: 100,
@@ -38,13 +43,13 @@ const styles = StyleSheet.create({
   logoContainer: {
     position: 'absolute',
     top: 70,
-    alignItems: 'center'
+    alignItems: 'center',
   },
   tagline: {
     fontSize: 25,
     fontWeight: '600',
-    paddingVertical: 20
-  }
+    paddingVertical: 20,
+  },
 });
 
 export default WelcomeScreen;
